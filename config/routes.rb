@@ -1,4 +1,7 @@
 Recharge::Application.routes.draw do
+  resources :stations
+match "stations_integrated_view"=>"stations#integrated_view"
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   get "welcome/index"
