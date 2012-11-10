@@ -1,0 +1,26 @@
+
+<%= content_for :page_header do %>
+<span style="color:white"><%  "Charges" %></span>
+<% end %>
+
+<table>
+  <tr>
+    <th>Device</th>
+    <th>Power</th>
+    <th>Station</th>
+    <th>User</th>
+  </tr>
+  <% for charge in @charges %>
+    <tr>
+      <td><%= charge.device %></td>
+      <td><%= charge.power %></td>
+      <td><%= charge.station_id %></td>
+      <td><%= charge.user_id %></td>
+      <td><%= link_to "Show", charge %></td>
+      <td><%= link_to "Edit", edit_charge_path(charge) %></td>
+      <td><%= link_to "Destroy", charge, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Charge", new_charge_path %></p>

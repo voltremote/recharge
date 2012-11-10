@@ -1,0 +1,28 @@
+<span style="color:white"><%  "Station" %></span>
+
+<p>
+  <strong>Name:</strong>
+  <%= @station.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @station.description %>
+</p>
+<p>
+  <strong>Zipcode:</strong>
+  <%= @station.zipcode %>
+</p>
+<p>
+  <strong>Street:</strong>
+  <%= @station.street %>
+</p>
+<p>
+  <strong>City:</strong>
+  <%= @station.city %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_station_path(@station) %> |
+  <%= link_to "Destroy", @station, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", stations_path %>
+</p>
