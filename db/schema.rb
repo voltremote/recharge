@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121110222256) do
+ActiveRecord::Schema.define(:version => 20121110224839) do
+
+  create_table "charges", :force => true do |t|
+    t.string   "device"
+    t.float    "power"
+    t.integer  "station_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
