@@ -1,6 +1,14 @@
 Recharge::Application.routes.draw do
+
+  resources :charges
+
+  match "charges_integrated_view"=>"charges#integrated_view"
+
+  match "people_integrated_view"=>"people#integrated_view"
+
   resources :stations
-match "stations_integrated_view"=>"stations#integrated_view"
+  
+  match "stations_integrated_view"=>"stations#integrated_view"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
@@ -57,8 +65,8 @@ match "stations_integrated_view"=>"stations#integrated_view"
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-root:to=>'welcome#index'
+  # root :to => 'welcome#index' 
+  root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
