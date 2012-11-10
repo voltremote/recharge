@@ -6,7 +6,7 @@ Recharge::Application.routes.draw do
 
   match "people_integrated_view"=>"people#integrated_view"
 
-  resources :stations
+  resources :stations, :except => [:destroy, :create, :new, :edit, :update]
   
   match "stations_integrated_view"=>"stations#integrated_view"
 
