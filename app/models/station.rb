@@ -1,6 +1,10 @@
 class Station < ActiveRecord::Base
 
-   set_table_name :stations
+  set_table_name :stations
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
 
   # ---------------
   # Accessible Attributes
