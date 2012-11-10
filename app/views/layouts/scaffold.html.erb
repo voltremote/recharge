@@ -8,15 +8,25 @@
   <script type="text/javascript">
       $(function() {
           $(".edit_link").click(function() {
-              $.get("<%=params[:controller]%>" + "/" + $(this).attr("id") + "/edit", function(data) {
+              $.get("<%=params[:controller]%>" + "/" + $(this).attr("id") + "/edit?get=1", function(data) {
 
                   $("#edit_form .modal-body").html(data);
                   $("#edit_form").modal('toggle');
+
               });
           });
       });
   </script>
   <%= yield(:head) %>
+  <style>
+      table td {
+          border: none;
+      }
+
+      table tr {
+          border: none;
+      }
+  </style>
 </head>
 <body>
 <div id="wrapper">
@@ -49,11 +59,9 @@
   <div class="container">
 
     <div class="page-header" style="height:100px"></div>
-    <div style="position:absolute;margin-top: -60px;" class="span12">
-      <h2>  <%= yield(:page_header) %></h2>
+    <div style="position:absolute;margin-top: -110px;" class="span16">
+      <%= yield(:page_header) %>
     </div>
-  </div>
-  <div class="container">
 
     <div class="content">
       <%= js extend_gritter :position => :bottom_right %>
@@ -75,6 +83,3 @@
 
 </body>
 </html>
-
-
-
