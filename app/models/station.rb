@@ -9,7 +9,11 @@ class Station < ActiveRecord::Base
   # remember to add the attribute to the attr_accessible list. Otherwise, many an hour is lost in figuring out why data is not
   # getting captured through forms...
 
-   attr_accessible :name, :description, :zipcode, :street, :city
+  attr_accessible :name, :description, :zipcode, :street, :city
+
+  has_many :charges
+  has_many :users, :through => :charges
+
 
   # ---------------
   # Associations
