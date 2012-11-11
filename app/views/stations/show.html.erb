@@ -8,26 +8,18 @@
   });
 <% end %>
 
-<%= link_to 'on', '#', :id => "cloud_on" %>
-<%= link_to 'off', '#', :id => "cloud_off", :style => "display:none;" %>
-
-<a href="https://twitter.com/intent/tweet?button_hashtag=<%=@station.slug%>&text=I'm%20charging%20up%20with%20%40urbansunspot!" class="twitter-hashtag-button" data-size="large" data-related="digitalWestie" data-dnt="true">Tweet!</a>
-
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
 <div class="marketing">
   <br /><br />
-    <h1><%= @station.name %></h1>
-    <p class="marketing-byline"> <%= @station.street %>, <%= @station.city %>, <%= @station.zipcode %>.</p>
-    <p class="marketing-byline"> <%= @station.description %></p>
-
+  <h1><%= @station.name %></h1>
+  <p class="marketing-byline"> <%= @station.street %>, <%= @station.city %>, <%= @station.zipcode %>.</p>
+  <p class="marketing-byline"> <%= @station.description %></p>
 </div>
 
 <div class = "row"> 
   <div class="span12">
     <h2>Charging Level</h2>
     <hr>
-        <div class="chart"></div>
+    <div class="chart"></div>
     <p class="text-success pull-right">This station is ready to charge your device!
     </p>
     <a class="btn  btn-success" href="#">Charge Now!</a>
@@ -37,6 +29,10 @@
 <div class="row">
   <div class="span4">
     <%= image_tag "#{@station.slug}.png"  %>   
+  </div>
+
+  <div class="span4">
+    <%= @station.description %>
   </div>
 
   <div class = "span4">
