@@ -1,12 +1,13 @@
 <% content_for :maps_javascript do %>
 
-  var myLatlng = new google.maps.LatLng(<%=@geo.lat%>, <%=@geo.lng%>);
+  var myLatlng = new google.maps.LatLng(<%= @station.lat %> , <%= @station.lng %>);
 
   var marker = new google.maps.Marker({
     position: myLatlng,
     map: map,
     title:"Hello World!"
   });
+
 <% end %>
 
 <span style="color:white"><%  "Station" %></span>

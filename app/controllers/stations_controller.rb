@@ -7,6 +7,8 @@ class StationsController < ApplicationController
 
   def show
     @station = Station.find(params[:id])
+    @focus_lat = @station.lat 
+    @focus_lng = @station.lng
   end
 
   def new
