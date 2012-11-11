@@ -22,8 +22,10 @@
 
       var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
       var cloudLayer = new google.maps.weather.CloudLayer();
-      $('#cloud_on').click(function(){ cloudLayer.setMap(map); $('#cloud_off').show(); $(this).hide(); });
-      $('#cloud_off').click(function(){ cloudLayer.setMap(null); $('#cloud_on').show(); $(this).hide(); });      
+
+      $('#cloud_on').click(function(){ console.log("hello"); cloudLayer.setMap(map); $('#cloud_off').show(); $(this).hide(); });
+      $('#cloud_off').click(function(){ console.log("hello"); cloudLayer.setMap(null); $('#cloud_on').show(); $(this).hide(); });      
+
       var sun_icon = new google.maps.MarkerImage("<%= asset_path('sun.png')%>", new google.maps.Size(66, 66), null, new google.maps.Point(16, 16), new google.maps.Size(33, 33));
 
       <%= yield(:maps_javascript) %>
@@ -31,6 +33,7 @@
 
     $(function() {
         initialize();
+
         $(".edit_link").click(function() {
             $.get("<%=params[:controller]%>" + "/" + $(this).attr("id") + "/edit", function(data) {
 
