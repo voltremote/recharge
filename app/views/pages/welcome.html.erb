@@ -28,13 +28,14 @@
         <p>Built at by <a href="http://twitter.com/mdo">@mdo</a> and <a href="http://twitter.com/fat">@fat</a>, Bootstrap utilizes <a href="http://lesscss.org">LESS CSS</a>, is compiled via <a href="http://nodejs.org">Node</a>, and is managed through <a href="http://github.com">GitHub</a> to help nerds do awesome stuff on the web.</p>
       </div>
       <div class="span4">
-        <img src="assets/img/bs-docs-responsive-illustrations.png">
+        
         <h2>Stations</h2>
         <h4>
           <% @stations.each do |station| %>
+          <div style="clear:both margin-bottom:15px;" >
           <%= link_to "Check Status", station, :style=>"float:right", :class => "btn btn-success"%>
-            <%= station.name %>
-      <br /> <div style="clear:both"></div>   <% end%>
+            <%= station.name %></div>
+          <% end%>
         </h4>
         <p>Bootstrap was made to not only look and behave great in the latest desktop browsers (as well as IE7!), but in tablet and smartphone browsers via <a href="./scaffolding.html#responsive">responsive CSS</a> as well.</p>
       </div>
