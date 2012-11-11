@@ -1,0 +1,60 @@
+<h1>Graph Tester Page</h1>
+
+<div class="chart"></div>
+
+
+<script>
+$("#datepicker").datepicker().on("changeDate", function (ev) {
+  window.location = client_url(ev.date);
+});
+  
+var client_url = function(date) {
+  return "/clients/#{params[:id]}/dashboard/" + $.format.date(date, "yyyy-MM-dd");
+}
+
+var width = 940;
+var height = 375;
+var $chart = $(".chart");
+
+var svg = d3.selectAll(".chart").append("svg").attr("width", width).attr("height", height);
+  
+var ratio_svg = d3.selectAll(".ratio").append("svg").append("g").attr('id', 'ratio');
+  
+function updateData(date){
+  date = date || new Date();
+       
+  $.get(client_url(date) + ".json", function(result) {
+    var data = result;
+    data.sample = data.production.length - 1;
+    $chart.data("chart-values", data);
+    $chart.trigger("data-changed");
+  });
+    
+  // number of samples to render
+
+}
+  
+$chart.data("chart-layout", {
+  width  : width,  // total width
+  height : height, // total height
+  left   : 37,     // space for left legend
+  bottom : 15,     // space for bottom legend
+  right  : 5       // right padding
+});
+  
+var select = function(hour) {
+  $(".js-deviation").text(this.deviationAt($chart.data("chart-values"), hour));
+}
+  
+var daily = vr.graphs.daily(svg, $chart.data("chart-layout"))
+              .onSelect(select)
+              .onDeselect(select);
+$chart.on("data-changed", function(data) {
+  daily($chart.data("chart-values"));
+  $(".js-deviation").text(deviationAt($chart.data("chart-values"), null) + "%");
+});
+  
+updateData('#{@date.strftime('%Y-%m-%d')}');
+  
+</script>
+
