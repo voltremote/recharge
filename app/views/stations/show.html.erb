@@ -16,13 +16,18 @@
 </div>
 
 <div class = "row"> 
-  <div class="span12">
-    <h2>Charging Level</h2>
-    <hr>
+  <div class="span12"> 
+    <div id = "chart-legend" style = "">        
+      <div style = "height:10px; width:10px; background-color:#1b8241; display:inline-block;"></div>
+      System power out (Watts)<br/>
+      <div style = "height:10px; width:10px; background-color: #aaa; display:inline-block;"></div>
+      Solar Watts in (Watts)
+    </div>
     <div class="chart"></div>
-    <p class="text-success pull-right">This station is ready to charge your device!
-    </p>
-    <a class="btn  btn-success" href="#">Charge Now!</a>
+    
+    <h3 style = "text-align:center;">Solar energy <span style = "color:#1b8241;">in</span> / <span style = "color:#aaa;">out</span>.</h3>
+
+    <!-- <a class="btn  btn-success" href="#">Charge Now!</a> -->
   </div>
 </div>
 
