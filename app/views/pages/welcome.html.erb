@@ -33,9 +33,9 @@
         <h2>Stations</h2>
         <h4>
           <% @stations.each do |station| %>
+          <%= link_to "Check Status", station, :style=>"float:right", :class => "btn btn-success"%>
             <%= station.name %>
-            <%= link_to "Check Status", station, :class => "btn  btn-success"%>
-          <% end%>
+      <br /> <div style="clear:both"></div>   <% end%>
         </h4>
         <p>Bootstrap was made to not only look and behave great in the latest desktop browsers (as well as IE7!), but in tablet and smartphone browsers via <a href="./scaffolding.html#responsive">responsive CSS</a> as well.</p>
       </div>
