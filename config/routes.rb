@@ -12,11 +12,7 @@ Recharge::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  get "welcome/index"
-
   devise_for :users
-  
-  root :to => 'welcome#index'
   
   match "graph" => 'graph_tester#index'
   match "about" => 'pages#about'
