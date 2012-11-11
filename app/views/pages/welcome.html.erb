@@ -1,17 +1,39 @@
+<div class="container">
 
-<div class="row">
-  <div class="span12">
-    <h1>Welcome to Urban Sunspot!</h1>
-    <p>
-    "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-    </p>
-  </div>
-</div>
+  <div class="marketing">
+  <br /><br />
+    <h1>Welcome to Sunspot.</h1>
+    <p class="marketing-byline">Need reasons to love Solar Energy? Look no further.</p>
 
+    <div class="row-fluid">
+      <div class="span4">
+        <img src="assets/asunspot.jpeg">
+        <h2>What is Sunspot?</h2>
+        <p>Built at by <a href="http://twitter.com/mdo">@mdo</a> and <a href="http://twitter.com/fat">@fat</a>, Bootstrap utilizes <a href="http://lesscss.org">LESS CSS</a>, is compiled via <a href="http://nodejs.org">Node</a>, and is managed through <a href="http://github.com">GitHub</a> to help nerds do awesome stuff on the web.</p>
+      </div>
+      <div class="span4">
+        <img src="assets/img/bs-docs-responsive-illustrations.png">
+        <h2>Stations</h2>
+        <h4>
+          <% @stations.each do |station| %>
+            <%= station.name %>
+            <%= link_to "Check Status", station, :class => "btn  btn-success"%>
+          <% end%>
+        </h4>
+        <p>Bootstrap was made to not only look and behave great in the latest desktop browsers (as well as IE7!), but in tablet and smartphone browsers via <a href="./scaffolding.html#responsive">responsive CSS</a> as well.</p>
+      </div>
+      <div class="span4">
+        <img src="assets/img/bs-docs-bootstrap-features.png">
+        <h2>What People Are Saying</h2>
+        <p>A 12-column responsive <a href="./scaffolding.html#grid">grid</a>, dozens of components, <a href="./javascript.html">JavaScript plugins</a>, typography, form controls, and even a <a href="./customize.html">web-based Customizer</a> to make Bootstrap your own.</p>
+      </div>
+    </div>
 
-<div class="row">
-  <div class="span12">
-  
+    <hr class="soften">
+<div style="margin-top:-50px; border-radius: 5px; padding:10px; background:#ddd;  height:90%;">
+<h1>Welcome to Urban Sunspot!</h1>
+<p><img style="float:right;" width="140px" src="/assets/asunspot.jpeg"/>"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."</p>
+  <table><tr><td>
     <h2>Stations</h2>
     <h4>
       <% @stations.each do |station| %>
@@ -27,14 +49,8 @@
         <%= charge %>
       <% end%>
     </p>
-
-  </div>
+  </td>
+  </tr>
 </div>
-
-<div class="row">
-  <div class="span4">
-
-<a class="twitter-timeline" data-dnt=true href="https://twitter.com/UrbanSunSpot" data-widget-id="267495998056693760">Tweets by @UrbanSunSpot</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 </div>

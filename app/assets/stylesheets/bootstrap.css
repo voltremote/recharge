@@ -327,7 +327,7 @@ h1 {
   font-size: 30px;
   line-height: 36px;
   color:#fff;
-  text-shadow: 2px 1px 1px #000;
+/*  text-shadow: 2px 1px 1px #000;*/
 }
 h1 small {
   font-size: 18px;
@@ -366,7 +366,7 @@ h6 {
 }
 .page-header {
   padding-bottom: 17px;
-  margin: 18px 0;
+  margin: 18px;
 /*  border-bottom: 1px solid #eeeeee;*/
 }
 .page-header h1 {
@@ -2648,7 +2648,6 @@ button.btn.small, input[type="submit"].btn.small {
   -moz-border-radius: 0;
   border-radius: 0;
   height:50px;
-  background: url ('assets/sunspots.png');
 }
 .navbar .nav {
   position: relative;
@@ -3529,3 +3528,35 @@ border-radius:5px;
 #wrapper {
 	background:#ccc;
 }
+.marketing {
+  text-align: center;
+  color: #5a5a5a;
+  margin-top:-100px;
+}
+.marketing h1 {
+  margin: 60px 0 10px;
+  font-size: 60px;
+  font-weight: 200;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.marketing h2 {
+  font-weight: 200;
+  margin-bottom: 5px;
+}
+.marketing p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.marketing .marketing-byline {
+  margin-bottom: 40px;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.25;
+  color: #999;
+}
+.marketing img {
+  display: block;
+  margin: 0 auto 30px;
+}
+
