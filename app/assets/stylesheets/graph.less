@@ -1,0 +1,139 @@
+// Grays
+// -------------------------
+@black:                 #000;
+@grayDarker:            #222;
+@grayDark:              #333;
+@gray:                  #555;
+@grayLight:             #999;
+@grayLighter:           #eee;
+@white:                 #fff;
+
+
+@orange: #f15e25;
+@yellow: #FFB540;
+@beige: #F7D56F;
+@lightgreen: #AFB56F;
+@green: #1B8241;
+
+// CUSTOM COLOURS
+@production: @green;
+@consumption: #aaa;
+
+
+// Dashboard chart
+// -----------------------------------------------------
+
+#ratio {
+  .stroked_path(@fill_colour) {
+    path {
+      stroke: white;
+      stroke-width: 1px;
+      fill: @fill_colour;
+    }
+  }
+  .rectangle(@stroke_colour) {
+    rect {
+      fill: @stroke_colour;
+      stroke: @white;
+      stroke-width: 1px;
+    } 
+  }
+
+  .consumption {
+    .stroked_path(@consumption);
+    .rectangle(@consumption);
+  }
+  
+  .production {
+    .stroked_path(@production);
+    .rectangle(@production);
+  }
+}
+
+#chart, #trend {
+  .selection {
+    rect {
+      fill: @grayDark;
+      stroke: @grayDarker;
+      stroke-width: 1px;
+      opacity: 0.5;
+    }
+  }
+  
+  .tick {
+      line {
+        stroke: black;
+        fill: none;
+        stroke-width: 1px;
+      }
+    }
+
+  .consumption {
+    rect {
+      fill: @consumption;
+    }
+  }
+  .production {
+    rect {
+      fill: @production;
+    }
+  }
+  .delta-plus {
+    rect {
+      fill: green;
+    }
+  }
+  .delta-minus {
+    rect {
+      fill: #FF4040;
+    }
+  }
+  .deviation  {
+    path {
+      stroke: #DDD;
+      fill : none;
+      stroke: green;
+    }
+    .smiley {
+      .mouth {
+        stroke: green;
+      }
+      circle{
+        fill: white;
+        stroke: #A68900;
+      }
+    }
+    .legend {
+      text {
+        font-size: 60%;
+        text-align: right;
+
+      }
+    }
+  }
+
+  #legend {
+    .hours .tick {
+      line {
+        stroke: #330000;
+        fill: none;
+        stroke-width: 1px;
+      }
+      text {
+        font-size: 60%;
+      }
+    }
+    .consumption .tick,
+    .percentage .tick{
+      line {
+        stroke: #330000;
+        fill: none;
+        stroke-width: 1px;
+      }
+      text {
+        font-size: 60%;
+        text-align: right;
+      }
+    }
+  }
+}

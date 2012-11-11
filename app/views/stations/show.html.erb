@@ -8,6 +8,9 @@
   });
 <% end %>
 
+<a href="https://twitter.com/intent/tweet?button_hashtag=<%=@station.slug%>&text=I'm%20charging%20up%20with%20%40urbansunspot!" class="twitter-hashtag-button" data-size="large" data-related="digitalWestie" data-dnt="true">Tweet!</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
 <div class="row">
   <div class="span4">
     <h1>Station <%= @station.name %></h1>
@@ -33,6 +36,7 @@
       <%= link_to "View All", stations_path %>
     </p>
   </div>
+
   <div class="span8">
         <h2>Charging Level</h2>
         <hr>
@@ -42,6 +46,13 @@
 
     <a class="btn  btn-success" href="#">Charge Now!</a>
   </div>
+
+  <div class = "span8">
+    <a class="twitter-timeline" data-dnt=true href="https://twitter.com/search?q=%23<%= @station.slug %>" data-widget-id="267518103573893121">Tweets about "#<%= @station.slug %>"</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </div>
+
 </div>
 
 <script>

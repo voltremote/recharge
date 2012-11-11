@@ -1,67 +1,29 @@
 class ChargesController < ApplicationController
 
-def index
+  before_filter :load_station
+
+  def load_station
+    @station = Station.find(params[:station_id])
+  end
+
+  def index
     @charges = Charge.all
-    @charge = Charge.new
-
-  end
-def show
-
-    @charge = Charge.find(params[:id])
-
-end
- def new
-    @charge = Charge.new
-
   end
 
-def create
-    @charge = Charge.new(params[:charge])
-if @charge.save
- if !params[:integrated_view].nil?
-    redirect_to charges_integrated_view_path, :notice => "Successfully created charge."
-else
-      redirect_to charges_url, :notice => "Successfully created charge."
-end
-    else
-      render :new
+  def show
+    @charge = @station.charges.find(params[:id])
+  end
+
+  def new
+    
+    unless params[:uniq_stamp].blank?
+      @charge = @station.charges.build(:device => request.env['HTTP_USER_AGENT'], :power => 3.00)
+      @charge.save
     end
+
   end
 
- def edit
-    @charge = Charge.find(params[:id])
-if !params[:get].nil?
- render :layout=>false
-end
-  end
-
-  def update
-    @charge = Charge.find(params[:id])
-if @charge.update_attributes(params[:charge])
- if !params[:integrated_view].nil?
-    redirect_to charges_integrated_view_path, :notice => "Successfully created charge."
-else
-      redirect_to charges_url, :notice => "Successfully created charge."
-end
-
-
-    else
-      render :edit
-    end
-  end
-
-def destroy
-  @charge = Charge.find(params[:id])
-@charge.destroy
-if !params[:integrated_view].nil?
-
- redirect_to charges_integrated_view_path, :notice => "Successfully destroyed charge."
-else
-  redirect_to charges_url, :notice => "Successfully destroyed charge."
-end
-end
-
-def parse_save_from_excel
+  def parse_save_from_excel
     test_file = params[:excel_file]
     file = FileUploader.new
     if file.store!(test_file)
@@ -75,17 +37,8 @@ def parse_save_from_excel
       sheet1.each 1 do |row|
         @counter+=1
         p = Charge.new
-
-
-
          p.device = row[0]
-
-
-
          p.power = row[1]
-
-
-
          p.station_id = row[2]
 
          p.user_id = row[3]
@@ -108,10 +61,10 @@ def parse_save_from_excel
       redirect_to charge, notice: 'Dummy datum could not be successfully uploaded.'
     end
   end
-def integrated_view
-  @charges = Charge.all
-      @charge = Charge.new
-render :layout=>'scaffold'
 
-end
+  def integrated_view
+    @charges = Charge.all 
+    @charge = Charge.new
+    render :layout=>'scaffold'
+  end
 end
