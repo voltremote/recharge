@@ -16,23 +16,16 @@
   <span style="color:white"><%  "Stations" %></span>
 <% end %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Zipcode</th>
-    <th>Street</th>
-    <th>City</th>
-  </tr>
-  <% for station in @stations %>
-    <tr>
-      <td><%= station.name %></td>
-      <td><%= station.description %></td>
-      <td><%= station.zipcode %></td>
-      <td><%= station.street %></td>
-      <td><%= station.city %></td>
-      <td><%= link_to "Show", station %></td>
-    </tr>
-  <% end %>
-</table>
+<% @stations.each_slice(3) do |slice| -%>
 
+  <div class = "row">
+    <% for station in slice %>
+      <div class= "span4">
+        <h2><%= link_to station.name, station %></h2>      
+        <%= station.street %>, <%= station.city %>, <%= station.zipcode %><br/>
+        <%= station.description %>    
+      </div>
+    <% end %>
+  </div>
+  
+<% end %>

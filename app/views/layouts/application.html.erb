@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +14,9 @@
       var mapOptions = {
         center: new google.maps.LatLng(<%= @focus_lat ||= 38.46 %>, <%= @focus_lng  ||= -100 %>),
         zoom: <%= @map_zoom ||= 5 %>,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        zoomControlOptions: {  position: google.maps.ControlPosition.LEFT_BOTTOM, style: google.maps.ZoomControlStyle.SMALL  },
+        streetViewControl:false
       };
 
       var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
@@ -72,8 +73,10 @@
     </div>
   </div>
 
+
     <div class="page-header">
       <div style = "height:450px; top:23px;" id = "map_canvas"></div>
+
       <br />
     </div>
     
