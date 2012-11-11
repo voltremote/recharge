@@ -260,6 +260,9 @@ a:hover {
 }
 .container {
   width: 90%;
+  height:90%;
+  margin-top:auto;
+  margin-bottom:auto;
   margin-left: auto;
   margin-right: auto;
   *zoom: 1;
@@ -307,7 +310,8 @@ h5,
 h6 {
   margin: 0;
   font-weight: bold;
-  color: #333333;
+  color:#000;
+  text-decoration:capitalize;
   text-rendering: optimizelegibility;
 }
 h1 small,
@@ -323,7 +327,7 @@ h1 {
   font-size: 30px;
   line-height: 36px;
   color:#fff;
-  text-shadow: 1px 1px 1px #000;
+  text-shadow: 2px 1px 1px #000;
 }
 h1 small {
   font-size: 18px;
@@ -331,6 +335,7 @@ h1 small {
 h2 {
   font-size: 24px;
   line-height: 36px;
+  text-shadow: 1px 1px 1px #fff;
 }
 h2 small {
   font-size: 18px;
@@ -362,7 +367,7 @@ h6 {
 .page-header {
   padding-bottom: 17px;
   margin: 18px 0;
-  border-bottom: 1px solid #eeeeee;
+/*  border-bottom: 1px solid #eeeeee;*/
 }
 .page-header h1 {
   line-height: 1;
@@ -2549,6 +2554,7 @@ button.btn.small, input[type="submit"].btn.small {
 .navbar-form {
   margin-bottom: 0;
   *zoom: 1;
+  display:none;
 }
 .navbar-form:before, .navbar-form:after {
   display: table;
@@ -2635,11 +2641,14 @@ button.btn.small, input[type="submit"].btn.small {
   clear:both;
 }
 .navbar-fixed-top .navbar-inner {
+	padding-top:10px;
   padding-left: 0;
   padding-right: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
+  height:50px;
+  background: url ('assets/sunspots.png');
 }
 .navbar .nav {
   position: relative;
