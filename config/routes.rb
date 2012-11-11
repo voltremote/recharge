@@ -18,9 +18,11 @@ Recharge::Application.routes.draw do
   
   
   match "graph" => 'graph_tester#index'
+  match "about" => 'pages#about'
+  match "contact" => 'pages#contact'
 
   
-  root:to=>'welcome#index'
+  root :to=>'pages#welcome'
   
   
   
