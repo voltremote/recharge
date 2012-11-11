@@ -68,15 +68,21 @@
       <div style = "height:450px; top:23px;" id = "map_canvas"></div>
       <br />
     </div>
-    <div class="container">
     
+    <div class="container">
     <div style="position:absolute;" class="span12">
       <h2>  <%= yield(:page_header) %></h2>
     </div>
   </div>
-  <div class="container-fluid">
-    <%= yield %>
+
+  <div class="center">
+    <div class="content">
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+    </div>
   </div>
+
 </div>
 
 </body>
