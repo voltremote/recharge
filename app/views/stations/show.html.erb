@@ -15,51 +15,36 @@
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-<div class="row">
-  <div class="span4">
-    <h1>Station <%= @station.name %></h1>
-    <span style="color:white"><%  "Station" %></span>
-    <p>
-      <strong>Description:</strong>
-      <%= @station.description %>
-    </p>
-    <p>
-      <strong>Zipcode:</strong>
-      <%= @station.zipcode %>
-    </p>
-    <p>
-      <strong>Street:</strong>
-      <%= @station.street %>
-    </p>
-    <p>
-      <strong>City:</strong>
-      <%= @station.city %>
-    </p>
-
-    <p>
-      <%= link_to "View All", stations_path %>
-    </p>
-  </div>
-
-  <div class="span8">
-        <h2>Charging Level</h2>
-        <hr>
-            <div class="chart"></div>
-        <p class="text-success pull-right">This station is ready to charge your device!
-        </p>
-
-    <a class="btn  btn-success" href="#">Charge Now!</a>
-  </div>
-
-  <div class = "span8">
-
-
-<a class="twitter-timeline" data-dnt=true href="https://twitter.com/UrbanSunSpot" data-widget-id="267495998056693760">Tweets by @UrbanSunSpot</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    
-  </div>
+<div class="marketing">
+  <br /><br />
+    <h1><%= @station.name %></h1>
+    <p class="marketing-byline"> <%= @station.street %>, <%= @station.city %>, <%= @station.zipcode %>.</p>
+    <p class="marketing-byline"> <%= @station.description %></p>
 
 </div>
+
+<div class = "row"> 
+  <div class="span12">
+    <h2>Charging Level</h2>
+    <hr>
+        <div class="chart"></div>
+    <p class="text-success pull-right">This station is ready to charge your device!
+    </p>
+    <a class="btn  btn-success" href="#">Charge Now!</a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span4">
+    <%= image_tag "#{@station.slug}.png"  %>   
+  </div>
+
+  <div class = "span4">
+    <a class="twitter-timeline" data-dnt=true href="https://twitter.com/UrbanSunSpot" data-widget-id="267495998056693760">Tweets by @UrbanSunSpot</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>    
+  </div>
+</div>
+
 
 <script>
   
@@ -67,7 +52,7 @@ var client_url = function(date) {
   return "/graph.json";
 }
 
-var width = 600;
+var width = 940;
 var height = 175;
 var $chart = $(".chart");
 
