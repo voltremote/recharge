@@ -2254,9 +2254,13 @@ button.btn.small, input[type="submit"].btn.small {
   -webkit-border-radius: 4px 4px 0 0;
   -moz-border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0 0;
+  background:#f5950c;
+  color:#fff;
 }
 .nav-tabs > li > a:hover {
   border-color: #eeeeee #eeeeee #dddddd;
+  color:#f5950c;
+  background-color:#fff;
 }
 .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
   color: #555555;
@@ -2441,7 +2445,7 @@ button.btn.small, input[type="submit"].btn.small {
 .navbar-inner {
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #2c2c2c;
+/*  background-color: #2c2c2c;
   background-image: -moz-linear-gradient(top, #333333, #222222);
   background-image: -ms-linear-gradient(top, #333333, #222222);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#222222));
@@ -2449,7 +2453,25 @@ button.btn.small, input[type="submit"].btn.small {
   background-image: -o-linear-gradient(top, #333333, #222222);
   background-image: linear-gradient(top, #333333, #222222);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);*/
+  background: #e8e8e8; /* Old browsers */
+
+  background: -moz-linear-gradient(top,  #e8e8e8 0%, #e4e3e5 20%, #b7b7b7 52%, #dfdae5 99%); /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e8e8e8), color-stop(20%,#e4e3e5), color-stop(52%,#b7b7b7), color-stop(99%,#dfdae5)); /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top,  #e8e8e8 0%,#e4e3e5 20%,#b7b7b7 52%,#dfdae5 99%); /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top,  #e8e8e8 0%,#e4e3e5 20%,#b7b7b7 52%,#dfdae5 99%); /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top,  #e8e8e8 0%,#e4e3e5 20%,#b7b7b7 52%,#dfdae5 99%); /* IE10+ */
+
+  background: linear-gradient(to bottom,  #e8e8e8 0%,#e4e3e5 20%,#b7b7b7 52%,#dfdae5 99%); /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8', endColorstr='#dfdae5',GradientType=0 ); /* IE6-9 */
+
+
+  
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -3498,4 +3520,11 @@ a.thumbnail:hover {
 }
 .invisible {
   visibility: hidden;
+}
+#tabs ul li{
+display:inline;
+list-style:none;	
+background:#ff9600;
+padding:5px 35px;
+border-radius:5px;
 }
