@@ -5,6 +5,7 @@ class Station < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  before_save :set_lat_lng, :if => lambda {|s| self.street_changed? or self.city_changed? or self.zipcode_changed? } 
 
   # ---------------
   # Accessible Attributes
@@ -16,8 +17,15 @@ class Station < ActiveRecord::Base
   attr_accessible :name, :description, :zipcode, :street, :city
 
   has_many :charges
-  has_many :users, :through => :charges
-
+  has_many :users, :through => :charges 
+  
+  def set_lat_lng
+    return false if (self.street.blank? or self.city.blank? or self.zipcode.blank?)
+    geo = Geokit::Geocoders::GoogleGeocoder.geocode("#{self.street}, #{self.city}, #{self.zipcode}") 
+    return false unless geo.success 
+    self.lat = geo.lat
+    self.lng = geo.lng 
+  end
 
   # ---------------
   # Associations

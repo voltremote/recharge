@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121110232502) do
+ActiveRecord::Schema.define(:version => 20121111011922) do
 
   create_table "charges", :force => true do |t|
     t.string   "device"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20121110232502) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "slug"
+    t.string   "lat"
+    t.string   "lng"
   end
 
   add_index "stations", ["slug"], :name => "index_stations_on_slug"
