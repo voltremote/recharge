@@ -16,7 +16,7 @@ class ChargesController < ApplicationController
 
   def new
     
-    unless params[:uniq_stamp].blank?
+    unless params[:us].blank?
       @charge = @station.charges.build(:device => request.env['HTTP_USER_AGENT'], :power => 3.00)
       @charge.save
     end
