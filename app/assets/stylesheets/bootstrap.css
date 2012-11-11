@@ -3610,3 +3610,5 @@ border-radius: 5px;
 box-shadow: 1px 1px 1px 3px #aaa;
 
 }
+
+.content h2 a:hover  { background-color:none; }
