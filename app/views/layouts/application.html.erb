@@ -7,19 +7,24 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYojLDIMA5YNtqq-1yPF1KONnca4zCJfM&sensor=false"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYojLDIMA5YNtqq-1yPF1KONnca4zCJfM&libraries=weather&sensor=false"></script>
 
   <script type="text/javascript">
-    function initialize() {
+
+    function initialize() { 
       var mapOptions = {
         center: new google.maps.LatLng(<%= @focus_lat ||= 38.46 %>, <%= @focus_lng  ||= -100 %>),
         zoom: <%= @map_zoom ||= 5 %>,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
+
       var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+      var cloudLayer = new google.maps.weather.CloudLayer();
+      $('#cloud_on').click(function(){ cloudLayer.setMap(map); $('#cloud_off').show(); $(this).hide(); });
+      $('#cloud_off').click(function(){ cloudLayer.setMap(null); $('#cloud_on').show(); $(this).hide(); });      
+      var sun_icon = new google.maps.MarkerImage("<%= asset_path('sun.png')%>", new google.maps.Size(66, 66), null, new google.maps.Point(16, 16), new google.maps.Size(33, 33));
 
       <%= yield(:maps_javascript) %>
-
     }
 
     $(function() {

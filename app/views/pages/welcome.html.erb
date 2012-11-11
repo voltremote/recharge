@@ -1,3 +1,39 @@
+<% content_for :maps_javascript do %>  
+  <% for station in @stations %>
+
+    google.maps.event.addListener(new google.maps.Marker({
+      position: new google.maps.LatLng(<%= station.lat %> , <%= station.lng %>),
+      map: map,
+      url: '<%= station_url(station) %>',
+      title:"<%= station.name %>",
+      icon: sun_icon
+    }), 'click', function() { window.location.href = this.url; });
+
+  <% end %>
+<% end %>
+
+<!--<div style="margin-top:-100px; z-index:99999999999;">
+<ul class="nav nav-tabs">
+  <li><a href="#home" data-toggle="tab">Home</a></li>
+  <li><a href="#profile" data-toggle="tab">Profile</a></li>
+  <li><a href="#messages" data-toggle="tab">Messages</a></li>
+  <li><a href="#settings" data-toggle="tab">Settings</a></li>
+</ul>
+</div>
+<div class="tab-content">
+  <div class="tab-pane active" id="home">...</div>
+  <div class="tab-pane" id="profile">...</div>
+  <div class="tab-pane" id="messages">...</div>
+  <div class="tab-pane" id="settings">...</div>
+</div>-->
+
+<div style="margin-top:-100px; border-radius: 5px; padding:10px; background:#ddd;">
+<h1>Welcome to Urban Sunspot!</h1>
+<p>"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."</p>
+</div>
+
+<p><%= link_to 'Show cloud cover', '#', :id => "cloud_on", :class => "btn" %>
+<%= link_to 'Hide cloud cover', '#', :id => "cloud_off", :style => "display:none;", :class => "btn" %></p>
 
 <div class="row">
   <div class="span12">
@@ -24,7 +60,7 @@
       <h2>Newest Charges</h2>
     <p>
       <% @charges.each do |charge| %>
-        <%= charge %>
+        <%= charge.power %> Watts at <%= charge.created_at %><br/>
       <% end%>
     </p>
 
