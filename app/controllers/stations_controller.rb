@@ -1,4 +1,3 @@
-#require 'geokit'
 class StationsController < ApplicationController
 
   def index
@@ -8,7 +7,8 @@ class StationsController < ApplicationController
 
   def show
     @station = Station.find(params[:id])
-    @geo = Geokit::Geocoders::GoogleGeocoder.geocode("#{@station.street}, #{@station.city}, #{@station.zipcode}")
+    @focus_lat = @station.lat 
+    @focus_lng = @station.lng
   end
 
   def new

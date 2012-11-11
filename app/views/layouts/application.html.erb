@@ -11,8 +11,10 @@
   <script type="text/javascript">
     function initialize() {
       var mapOptions = {
-        center: new google.maps.LatLng(37.46, -122.25),
-        zoom: 8,
+        <% @focus_lat ||= 37.46 %>
+        <% @focus_lng ||= -122.25 %>
+        center: new google.maps.LatLng(<%= @focus_lat %>, <%= @focus_lng%>),
+        zoom: 16,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
@@ -63,12 +65,11 @@
     </div>
   </div>
 
-  <% if false %>
     <div class="page-header" style=" width:100%;height:500px">
-      <div style = "height:500px;" id = "map_canvas"></div>
+      <div style = "height:500px; top:23px;" id = "map_canvas"></div>
       <br />
     </div>
-    <% end%>
+
     <div class="container">
     
     <div style="position:absolute;" class="span12">
