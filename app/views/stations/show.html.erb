@@ -1,4 +1,3 @@
-<div style="margin-top:-50px; border-radius: 5px; padding:10px; background:#ddd;">
 <% content_for :maps_javascript do %>
   var myLatlng = new google.maps.LatLng(<%= @station.lat %> , <%= @station.lng %>);
   var marker = new google.maps.Marker({
@@ -100,5 +99,3 @@ $chart.on("data-changed", function(data) {
 updateData(1);
   
 </script>
-
-</div>

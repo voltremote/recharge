@@ -110,7 +110,6 @@ body {
   font-size: 13px;
   line-height: 18px;
   color: #333333;
-  background-color: #ccc;
 }
 a {
   color: #0088cc;
@@ -326,8 +325,8 @@ h6 small {
 h1 {
   font-size: 30px;
   line-height: 36px;
-  color:#fff;
-  text-shadow: 2px 1px 1px #000;
+  color:#555;
+/*  text-shadow: 2px 1px 1px #000;*/
 }
 h1 small {
   font-size: 18px;
@@ -2648,7 +2647,6 @@ button.btn.small, input[type="submit"].btn.small {
   -moz-border-radius: 0;
   border-radius: 0;
   height:50px;
-  background: url ('assets/sunspots.png');
 }
 .navbar .nav {
   position: relative;
@@ -3527,5 +3525,47 @@ padding:5px 35px;
 border-radius:5px;
 }
 #wrapper {
-	background:#ccc;
 }
+.marketing {
+  text-align: center;
+  color: #5a5a5a;
+  margin-top:-100px;
+}
+.marketing h1 {
+  margin: 60px 0 10px;
+  font-size: 60px;
+  font-weight: 200;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.marketing h2 {
+  font-weight: 200;
+  margin-bottom: 5px;
+}
+.marketing p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.marketing .marketing-byline {
+  margin-bottom: 40px;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.25;
+  color: #999;
+}
+.marketing img {
+  display: block;
+  margin: 0 auto 30px;
+}
+
+/* Faded out hr */
+hr.soften {
+  height: 1px;
+  margin: 70px 0;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  border: 0;
+}
+
