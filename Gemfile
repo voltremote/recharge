@@ -28,6 +28,9 @@ gem 'thesilverspoon'
 gem 'friendly_id'
 gem 'geokit'
 gem 'pg'
+gem 'cancan'
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
