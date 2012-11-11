@@ -3569,3 +3569,4 @@ hr.soften {
   border: 0;
 }
 
+#station-description { top: -25px; font-size: 1em; color:#999; position:relative;}
