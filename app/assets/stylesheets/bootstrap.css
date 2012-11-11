@@ -3569,3 +3569,44 @@ hr.soften {
   border: 0;
 }
 
+#station-description { top: -25px; font-size: 1em; color:#999; position:relative;}
+#chart-legend { 
+float: right;
+box-shadow: 0px 0px 4px 1px gray;
+padding: 18px;
+position: relative;
+top: 100px;
+right: 0;
+background-color: rgba(255, 255, 255, 0.7);}
+
+
+ table.qr-code {
+  border-width: 0;
+  border-style: none;
+  border-color: #0000ff;
+  border-collapse: collapse;
+ }
+ table.qr-code td {
+   border-width: 0;
+   border-style: none;
+   border-color: #0000ff;
+   border-collapse: collapse;
+   padding: 0;
+   margin: 0;
+   width: 3px;
+   height: 3px;
+ }
+ table.qr-code td.black { background-color: #000; }
+ table.qr-code td.white { background-color: #fff; }
+
+#qr-code-holder {
+
+position: absolute;
+top: 332px;
+right: 24px;
+background-color: white;
+padding: 10px;
+border-radius: 5px;
+box-shadow: 1px 1px 1px 3px #aaa;
+
+}

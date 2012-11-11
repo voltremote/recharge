@@ -8,58 +8,66 @@
   });
 <% end %>
 
-<%= link_to 'on', '#', :id => "cloud_on" %>
-<%= link_to 'off', '#', :id => "cloud_off", :style => "display:none;" %>
-
-<a href="https://twitter.com/intent/tweet?button_hashtag=<%=@station.slug%>&text=I'm%20charging%20up%20with%20%40urbansunspot!" class="twitter-hashtag-button" data-size="large" data-related="digitalWestie" data-dnt="true">Tweet!</a>
-
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-<div class="row">
-  <div class="span4">
-    <h1>Station <%= @station.name %></h1>
-    <span style="color:white"><%  "Station" %></span>
-    <p>
-      <strong>Description:</strong>
-      <%= @station.description %>
-    </p>
-    <p>
-      <strong>Zipcode:</strong>
-      <%= @station.zipcode %>
-    </p>
-    <p>
-      <strong>Street:</strong>
-      <%= @station.street %>
-    </p>
-    <p>
-      <strong>City:</strong>
-      <%= @station.city %>
-    </p>
-
-    <p>
-      <%= link_to "View All", stations_path %>
-    </p>
-  </div>
-
-  <div class="span8">
-        <h2>Charging Level</h2>
-        <hr>
-            <div class="chart"></div>
-        <p class="text-success pull-right">This station is ready to charge your device!
-        </p>
-
-    <a class="btn  btn-success" href="#">Charge Now!</a>
-  </div>
-
-  <div class = "span8">
-
-
-<a class="twitter-timeline" data-dnt=true href="https://twitter.com/UrbanSunSpot" data-widget-id="267495998056693760">Tweets by @UrbanSunSpot</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    
-  </div>
-
+<div id = "qr-code-holder">
+<table class = "qr-code">
+<% @qr.modules.each_index do |x| -%>
+<tr>
+<% @qr.modules.each_index do |y| -%>
+<% if @qr.dark?(x,y) -%>
+<td class="black"/>
+<% else -%>
+<td class="white"/>
+<% end -%>
+<% end -%>
+</tr>
+<% end -%>
+</table>
 </div>
+
+<div class="marketing">
+  <br /><br />
+  <h1><%= @station.name %></h1>
+  <p class="marketing-byline"> <%= @station.street %>, <%= @station.city %>, <%= @station.zipcode %>.</p>
+  <p id="station-description"> <%= @station.description %></p>
+</div>
+
+<div class = "row"> 
+  <div class="span12"> 
+    <div id = "chart-legend" style = "">        
+      <div style = "height:10px; width:10px; background-color:#1b8241; display:inline-block;"></div>
+      System power out (Watts)<br/>
+      <div style = "height:10px; width:10px; background-color: #aaa; display:inline-block;"></div>
+      Solar Watts in (Watts)
+    </div>
+    <div class="chart"></div>
+    
+    <h3 style = "text-align:center;">Solar energy <span style = "color:#1b8241;">in</span> / <span style = "color:#aaa;">out</span>.</h3>
+    <!-- <a class="btn  btn-success" href="#">Charge Now!</a> -->
+  </div>
+</div>
+
+<br/>
+
+<div class="row" style = "margin-top:10px;">
+
+  <div class="span4">
+    <%= image_tag "#{@station.slug}.png"  %>  
+    <%= "#{@station.charges.count} charges at this station"  %>  
+  </div>
+
+  <div class="span4">
+    <p style = "float:right;">Current battery capacity</p>
+    <%= image_tag 'battery.png', :style => "" %>    
+
+
+  </div>
+
+  <div class = "span4">
+    <a class="twitter-timeline" data-dnt=true href="https://twitter.com/UrbanSunSpot" data-widget-id="267495998056693760">Tweets by @UrbanSunSpot</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>    
+  </div>
+</div>
+
 
 <script>
   
@@ -67,7 +75,7 @@ var client_url = function(date) {
   return "/graph.json";
 }
 
-var width = 600;
+var width = 940;
 var height = 175;
 var $chart = $(".chart");
 

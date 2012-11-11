@@ -36,6 +36,7 @@ gem 'mini_magick', '~> 3.4'
 gem 'paperclip', '~> 3.3'
 gem 'rspec-rails', '~> 2.11'
 gem 'timecop', '~> 0.5'
+gem 'rqrcode'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
