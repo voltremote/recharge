@@ -11,7 +11,7 @@ class StationsController < ApplicationController
     @focus_lat = @station.lat 
     @focus_lng = @station.lng
     @map_zoom = 15
-    @qr = RQRCode::QRCode.new(new_station_charge_url(@station, :time => 1), :size => 7)
+    @qr = RQRCode::QRCode.new(new_station_charge_url(@station, :time => 1), :size => 9)
   end
 
   def new
