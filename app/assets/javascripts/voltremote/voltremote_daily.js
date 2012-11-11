@@ -10,7 +10,7 @@ vr.graphs.daily = function(container, layout) {
 
   
   var layers = 2,
-      samples = 24*4;
+      samples = 24*1;
     
   var margin = 20,
       left_axis = layout.left,
@@ -40,7 +40,7 @@ vr.graphs.daily = function(container, layout) {
     .data(vr.integerGenerator(23))
     .enter().append("text")
     .attr("class", "label")
-    .attr("x", function(d) {return left_axis + x({x:d*4}); })
+    .attr("x", function(d) {return left_axis + x({x:d*1}); })
     .attr("y", height + 6)
     .attr("dx", x({x: .45}))
     .attr("dy", ".71em")
@@ -65,25 +65,7 @@ vr.graphs.daily = function(container, layout) {
        .attr("width", 4*(width/samples));
        
   var old_x_pos = 0;
-  svg.on("click", function() {
-      var position = d3.mouse(this);
-      
-      if (position[0] > left_axis) {
-      
-        var x_pos = Math.floor((position[0] - left_axis)*(mx/width));
-        x_pos = Math.floor(x_pos/4)*4;         
   
-        var change = Math.abs(x_pos - old_x_pos);
-        old_x_pos = x_pos;  
-      
-      
-        selection.transition()
-                .duration(15 * change)       
-                .style("display", "inline")
-                .attr("transform", "translate(" + x({ x: x_pos }) + ", 0)");
-        onSelect || onSelect(x_pos/4);
-      }
-  });
         
   
   function daily(data) {
