@@ -1,3 +1,11 @@
+<% content_for :maps_javascript do %>
+  var marker = new google.maps.Marker({
+    position: myLatlng,
+    map: map,
+    title:"Hello World!"
+  });
+<% end %>
+
 <span style="color:white"><%  "Station" %></span>
 
 <p>
