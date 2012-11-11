@@ -3,7 +3,8 @@
   var marker = new google.maps.Marker({
     position: myLatlng,
     map: map,
-    title:"Hello World!"
+    title:'<%= @station.name %>',
+    icon: sun_icon
   });
 <% end %>
 
