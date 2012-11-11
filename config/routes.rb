@@ -18,9 +18,9 @@ Recharge::Application.routes.draw do
   
   match "graph" => 'graph_tester#index'
 
- 
-  root:to=>'welcome#index'
-  
+  root :to => 'welcome#index'
+
+
   
   
   # The priority is based upon order of creation:
@@ -70,6 +70,13 @@ Recharge::Application.routes.draw do
   #     resources :products
   #   end
 
+<<<<<<< HEAD
+=======
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+
+  # See how all your routes lay out with "rake routes"
+>>>>>>> f26d4396aee31a0eb9dd671629f15b2befc0456c
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
