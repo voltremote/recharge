@@ -1,3 +1,17 @@
+<% content_for :maps_javascript do %>  
+  <% for station in @stations %>
+
+    google.maps.event.addListener(new google.maps.Marker({
+      position: new google.maps.LatLng(<%= station.lat %> , <%= station.lng %>),
+      map: map,
+      url: '<%= station_url(station) %>',
+      title:"<%= station.name %>",
+      icon: sun_icon
+    }), 'click', function() { window.location.href = this.url; });
+
+  <% end %>
+<% end %>
+
 <!--<div style="margin-top:-100px; z-index:99999999999;">
 <ul class="nav nav-tabs">
   <li><a href="#home" data-toggle="tab">Home</a></li>
@@ -41,7 +55,7 @@
     <h2>Newest Charges</h2>
     <p>
       <% @charges.each do |charge| %>
-        <%= charge %>
+        <%= charge.power %> Watts at <%= charge.created_at %><br/>
       <% end%>
     </p>
   </div>
