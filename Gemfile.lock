@@ -173,6 +173,7 @@ PLATFORMS
 
 DEPENDENCIES
   cancan
+  carrierwave
   coffee-rails (~> 3.2.1)
   friendly_id
   geokit
