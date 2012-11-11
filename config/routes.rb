@@ -16,12 +16,17 @@ Recharge::Application.routes.draw do
 
   devise_for :users
   
-  match "graph" => 'graph_tester#index'
-
   root :to => 'welcome#index'
-
+  
+  match "graph" => 'graph_tester#index'
+  match "about" => 'pages#about'
+  match "contact" => 'pages#contact'
 
   
+
+  match "graph" => 'graph_tester#index'
+
+  root :to=>'pages#welcome'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
