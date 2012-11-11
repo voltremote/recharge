@@ -2618,6 +2618,10 @@ button.btn.small, input[type="submit"].btn.small {
   right: 0;
   left: 0;
   z-index: 1030;
+  -webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.3);
+  -moz-box-shadow:    7px 7px 5px rgba(50, 50, 50, 0.3);
+  box-shadow:         7px 7px 5px rgba(50, 50, 50, 0.3);
+  clear:both;
 }
 .navbar-fixed-top .navbar-inner {
   padding-left: 0;
@@ -2699,6 +2703,7 @@ button.btn.small, input[type="submit"].btn.small {
 }
 .navbar .nav .dropdown-toggle .caret, .navbar .nav .open.dropdown .caret {
   border-top-color: #ffffff;
+  
 }
 .navbar .nav .active .caret {
   opacity: 1;

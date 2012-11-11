@@ -1,0 +1,55 @@
+<%= form_for @charge do |f| %>
+
+
+<% if @charge.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@charge.errors.count, "error") %> prohibited this chargefrom being saved:</h2>
+
+          <ul>
+            <% @charge.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+
+<table class="condensed-table">
+      <tr>
+        <td><%= f.label :device %></td>
+
+        <td><%= f.text_field :device %></td>
+            
+      </tr>
+
+      <tr>
+        <td><%= f.label :power %></td>
+
+        <td><%= f.text_field :power %></td>
+            
+      </tr>
+
+      <tr>
+        <td><%= f.label :station_id %></td>
+
+        <td><%= f.select :station_id,Station.all.collect{|var|[var.name,var.id]} %></td>
+
+            
+      </tr>
+
+      <tr>
+        <td><%= f.label :user_id %></td>
+
+        <td><%= f.select :user_id,User.all.collect{|var|[var.name,var.id]} %></td>
+
+            
+      </tr>
+
+</table>
+<br>
+<br>
+
+<%= f.submit "Submit" ,:style=>"margin:auto",:class=>"btn primary large"%>
+
+<% end %>

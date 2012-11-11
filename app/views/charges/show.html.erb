@@ -1,0 +1,24 @@
+<span style="color:white"><%  "Charge" %></span>
+
+<p>
+  <strong>Device:</strong>
+  <%= @charge.device %>
+</p>
+<p>
+  <strong>Power:</strong>
+  <%= @charge.power %>
+</p>
+<p>
+  <strong>Station:</strong>
+  <%= @charge.station_id %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @charge.user_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_charge_path(@charge) %> |
+  <%= link_to "Destroy", @charge, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", charges_path %>
+</p>
