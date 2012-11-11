@@ -26,18 +26,20 @@
     <div class="chart"></div>
     
     <h3 style = "text-align:center;">Solar energy <span style = "color:#1b8241;">in</span> / <span style = "color:#aaa;">out</span>.</h3>
-
     <!-- <a class="btn  btn-success" href="#">Charge Now!</a> -->
   </div>
 </div>
 
-<div class="row">
+<br/>
+
+<div class="row" style = "margin-top:10px;">
   <div class="span4">
     <%= image_tag "#{@station.slug}.png"  %>   
   </div>
 
   <div class="span4">
     <%= image_tag 'battery.png' %>
+    <p>Current battery capacity</p>
   </div>
 
   <div class = "span4">
