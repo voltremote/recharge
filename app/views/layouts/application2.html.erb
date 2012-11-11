@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Sun Spot!</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYojLDIMA5YNtqq-1yPF1KONnca4zCJfM&sensor=false"></script>
+
+  <script type="text/javascript">
+    function initialize() {
+      var mapOptions = {
+        center: new google.maps.LatLng(<%= @focus_lat ||= 37.46 %>, <%= @focus_lng  ||= -122.25 %>),
+        zoom: <%= @map_zoom ||= 8 %>,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+      <%= yield(:maps_javascript) %>
+
+    }
+
+    $(function() {
+        initialize();
+        $(".edit_link").click(function() {
+            $.get("<%=params[:controller]%>" + "/" + $(this).attr("id") + "/edit", function(data) {
+
+                $("#edit_form .modal-body").html(data);
+                $("#edit_form").modal('toggle');
+            });
+        });
+    });
+  </script>
+  <%= yield(:head) %>
+</head>
+<body>
+<div id="wrapper">
+  <div class="navbar navbar-fixed-top" style="z-index: 999999999">
+    <div class="navbar-inner" style="z-index: 999999999">
+      <div class="container">
+        <a class="brand" href="/"><img width="150px" src="/assets/usunspot.png"/></a>
+        <ul class="nav">
+          <li><a href="about" style="color:white;">About</a></li>
+          <li><a href="contact" style="color:white;">Contact</a></li>
+        </ul>
+
+        <% if !user_signed_in? %>
+            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class =>"pull-right navbar-form"}) do |f| %>
+                <%= f.email_field :email, :class=>"input-small", :placeholder=>"Email" %>
+                <%= f.password_field :password, :class=>"input-small", :placeholder=>"Password" %>
+                <%= f.submit "Sign In", :class=>"primary btn" %>
+            <% end %>
+        <% else %>
+            <div class="pull-right" style="margin-top: 10px;color:white;">
+              <%= current_user.email %>
+              <span class="nav_link">
+              | <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :style=>"color:white;" %>
+            </span>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+    <div class="page-header" style=" width:100%;height:500px">
+      <div style = "height:400px; top:23px;" id = "map_canvas"></div>
+      <br />
+    </div>
+    <div class="container">
+    
+    <div style="position:absolute;" class="span12">
+      <h2>  <%= yield(:page_header) %></h2>
+    </div>
+  </div>
+  <div class="container">
+
+    <div class="content">
+      <%= yield %>
+    </div>
+
+    <% if request.fullpath=="/" %>
+    <% end %>
+
+  </div>
+</div>
+
+</body>
+</html>
