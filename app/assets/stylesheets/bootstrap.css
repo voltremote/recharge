@@ -3599,3 +3599,14 @@ background-color: rgba(255, 255, 255, 0.7);}
  table.qr-code td.black { background-color: #000; }
  table.qr-code td.white { background-color: #fff; }
 
+#qr-code-holder {
+
+position: absolute;
+top: 332px;
+right: 24px;
+background-color: white;
+padding: 10px;
+border-radius: 5px;
+box-shadow: 1px 1px 1px 3px #aaa;
+
+}

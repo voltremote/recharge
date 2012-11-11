@@ -8,6 +8,22 @@
   });
 <% end %>
 
+<div id = "qr-code-holder">
+<table class = "qr-code">
+<% @qr.modules.each_index do |x| -%>
+<tr>
+<% @qr.modules.each_index do |y| -%>
+<% if @qr.dark?(x,y) -%>
+<td class="black"/>
+<% else -%>
+<td class="white"/>
+<% end -%>
+<% end -%>
+</tr>
+<% end -%>
+</table>
+</div>
+
 <div class="marketing">
   <br /><br />
   <h1><%= @station.name %></h1>
@@ -33,26 +49,16 @@
 <br/>
 
 <div class="row" style = "margin-top:10px;">
+
   <div class="span4">
-    <%= image_tag "#{@station.slug}.png"  %>   
+    <%= image_tag "#{@station.slug}.png"  %>  
+    <%= "#{@station.charges.count} charges at this station"  %>  
   </div>
 
   <div class="span4">
     <p style = "float:right;">Current battery capacity</p>
-    <%= image_tag 'battery.png', :style => "height:200px;" %>    
-      <table class = "qr-code">
-   <% @qr.modules.each_index do |x| -%>
-     <tr>
-     <% @qr.modules.each_index do |y| -%>
-      <% if @qr.dark?(x,y) -%>
-      <td class="black"/>
-      <% else -%>
-      <td class="white"/>
-      <% end -%>
-     <% end -%>
-     </tr>
-   <% end -%>
-  </table>
+    <%= image_tag 'battery.png', :style => "" %>    
+
 
   </div>
 
