@@ -13,14 +13,9 @@ Recharge::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users
-  
   match "graph" => 'graph_tester#index'
   match "about" => 'pages#about'
   match "contact" => 'pages#contact'
-
-  
-
-  match "graph" => 'graph_tester#index'
 
   root :to=>'pages#welcome'
   

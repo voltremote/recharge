@@ -110,7 +110,7 @@ body {
   font-size: 13px;
   line-height: 18px;
   color: #333333;
-  background-color: #ffffff;
+  background-color: #ccc;
 }
 a {
   color: #0088cc;
@@ -259,7 +259,7 @@ a:hover {
   width: 99.99999998999999%;
 }
 .container {
-  width: 940px;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
   *zoom: 1;
@@ -322,6 +322,8 @@ h6 small {
 h1 {
   font-size: 30px;
   line-height: 36px;
+  color:#fff;
+  text-shadow: 1px 1px 1px #000;
 }
 h1 small {
   font-size: 18px;
@@ -2454,21 +2456,7 @@ button.btn.small, input[type="submit"].btn.small {
   background-image: linear-gradient(top, #333333, #222222);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);*/
-  background: #e8e8e8; /* Old browsers */
-
-  background: -moz-linear-gradient(top,  #e8e8e8 0%, #e4e3e5 20%, #b7b7b7 52%, #dfdae5 99%); /* FF3.6+ */
-
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e8e8e8), color-stop(20%,#e4e3e5), color-stop(52%,#b7b7b7), color-stop(99%,#dfdae5)); /* Chrome,Safari4+ */
-
-  background: -webkit-linear-gradient(top,  #e8e8e8 0%,#e4e3e5 20%,#b7b7b7 52%,#dfdae5 99%); /* Chrome10+,Safari5.1+ */
-
-  background: -o-linear-gradient(top,  #e8e8e8 0%,#e4e3e5 20%,#b7b7b7 52%,#dfdae5 99%); /* Opera 11.10+ */
-
-  background: -ms-linear-gradient(top,  #e8e8e8 0%,#e4e3e5 20%,#b7b7b7 52%,#dfdae5 99%); /* IE10+ */
-
-  background: linear-gradient(to bottom,  #e8e8e8 0%,#e4e3e5 20%,#b7b7b7 52%,#dfdae5 99%); /* W3C */
-
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8', endColorstr='#dfdae5',GradientType=0 ); /* IE6-9 */
+  background: #000;
 
 
   
@@ -2531,6 +2519,7 @@ button.btn.small, input[type="submit"].btn.small {
 }
 .navbar .brand:hover {
   text-decoration: none;
+  background:none;
 }
 .navbar .brand {
   float: left;
@@ -2941,7 +2930,7 @@ button.btn.small, input[type="submit"].btn.small {
 }
 .modal-header {
   padding: 9px 15px;
-  border-bottom: 1px solid #eee;
+/*border-bottom: 1px solid #eee;*/
 }
 .modal-header .close {
   margin-top: 2px;
@@ -3527,4 +3516,7 @@ list-style:none;
 background:#ff9600;
 padding:5px 35px;
 border-radius:5px;
+}
+#wrapper {
+	background:#ccc;
 }
