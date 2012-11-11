@@ -5,16 +5,32 @@
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <script type="text/javascript">
-      $(function() {
-          $(".edit_link").click(function() {
-              $.get("<%=params[:controller]%>" + "/" + $(this).attr("id") + "/edit", function(data) {
 
-                  $("#edit_form .modal-body").html(data);
-                  $("#edit_form").modal('toggle');
-              });
-          });
-      });
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYojLDIMA5YNtqq-1yPF1KONnca4zCJfM&sensor=false"></script>
+
+  <script type="text/javascript">
+    function initialize() {
+      var mapOptions = {
+        center: new google.maps.LatLng(37.46, -122.25),
+        zoom: 8,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+      <%= yield(:maps_javascript) %>
+
+    }
+
+    $(function() {
+        initialize();
+        $(".edit_link").click(function() {
+            $.get("<%=params[:controller]%>" + "/" + $(this).attr("id") + "/edit", function(data) {
+
+                $("#edit_form .modal-body").html(data);
+                $("#edit_form").modal('toggle');
+            });
+        });
+    });
   </script>
   <%= yield(:head) %>
 </head>
@@ -47,9 +63,12 @@
     </div>
   </div>
 
+  <% if false %>
     <div class="page-header" style=" width:100%;height:500px">
-    <iframe style="margin-left:auto; margin-right:auto;" width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=san+francisco,+ca&amp;aq=&amp;sll=37.26531,-123.486328&amp;sspn=11.498073,23.312988&amp;ie=UTF8&amp;hq=&amp;hnear=San+Francisco,+California&amp;t=m&amp;ll=37.775057,-122.419281&amp;spn=0.135685,0.30899&amp;z=12&amp;iwloc=A&amp;output=embed"></iframe><br /><small><!--<a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=san+francisco,+ca&amp;aq=&amp;sll=37.26531,-123.486328&amp;sspn=11.498073,23.312988&amp;ie=UTF8&amp;hq=&amp;hnear=San+Francisco,+California&amp;t=m&amp;ll=37.775057,-122.419281&amp;spn=0.135685,0.30899&amp;z=12&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small>-->
+      <div style = "height:500px;" id = "map_canvas"></div>
+      <br />
     </div>
+    <% end%>
     <div class="container">
     
     <div style="position:absolute;" class="span12">
@@ -59,24 +78,19 @@
   <div class="container">
 
     <div class="content">
-      <%= js extend_gritter :position => :bottom_right %>
-      <%= js add_gritter(flash[:notice], :image => :success, :title => "Notice", :sticky => false, :time => 2000) %>
-      <%= js add_gritter(flash[:alert], :image => :warning, :title => "Alert!", :sticky => false, :time => 2000) %>
       <%= yield %>
     </div>
 
     <% if request.fullpath=="/" %>
-
-
-
     <% end %>
+
   </div>
 </div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8d04259ad9bf5a8365931a7b8e2dda7076e88b87
 
 </body>
 </html>
-
-
-

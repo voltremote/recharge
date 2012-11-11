@@ -16,8 +16,18 @@ Recharge::Application.routes.draw do
 
   devise_for :users
   
+<<<<<<< HEAD
   root :to => 'welcome#index'
+=======
+  
+  match "graph" => 'graph_tester#index'
+>>>>>>> 8d04259ad9bf5a8365931a7b8e2dda7076e88b87
 
+  
+  root:to=>'welcome#index'
+  
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -67,7 +77,10 @@ Recharge::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+<<<<<<< HEAD
   # root :to => 'welcome#index'
+=======
+>>>>>>> 8d04259ad9bf5a8365931a7b8e2dda7076e88b87
 
   # See how all your routes lay out with "rake routes"
 
