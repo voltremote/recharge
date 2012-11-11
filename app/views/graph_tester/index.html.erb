@@ -2,14 +2,10 @@
 
 <div class="chart"></div>
 
-
 <script>
-$("#datepicker").datepicker().on("changeDate", function (ev) {
-  window.location = client_url(ev.date);
-});
   
 var client_url = function(date) {
-  return "/clients/#{params[:id]}/dashboard/" + $.format.date(date, "yyyy-MM-dd");
+  return "/graph/index.json";
 }
 
 var width = 940;
@@ -54,7 +50,6 @@ $chart.on("data-changed", function(data) {
   $(".js-deviation").text(deviationAt($chart.data("chart-values"), null) + "%");
 });
   
-updateData('#{@date.strftime('%Y-%m-%d')}');
   
 </script>
 

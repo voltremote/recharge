@@ -61,11 +61,12 @@
     </div>
   </div>
 
+  <% if false %>
     <div class="page-header" style=" width:100%;height:500px">
       <div style = "height:500px;" id = "map_canvas"></div>
       <br />
     </div>
-
+    <% end%>
     <div class="container">
     
     <div style="position:absolute;" class="span12">
@@ -75,9 +76,6 @@
   <div class="container">
 
     <div class="content">
-      <%= js extend_gritter :position => :bottom_right %>
-      <%= js add_gritter(flash[:notice], :image => :success, :title => "Notice", :sticky => false, :time => 2000) %>
-      <%= js add_gritter(flash[:alert], :image => :warning, :title => "Alert!", :sticky => false, :time => 2000) %>
       <%= yield %>
     </div>
 
