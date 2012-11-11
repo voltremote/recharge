@@ -9,7 +9,10 @@ class Charge < ActiveRecord::Base
   # remember to add the attribute to the attr_accessible list. Otherwise, many an hour is lost in figuring out why data is not
   # getting captured through forms...
 
-   attr_accessible :device, :power, :station_id, :user_id
+  attr_accessible :device, :power, :station_id, :user_id
+
+  belongs_to :station
+  belongs_to :user
 
   # ---------------
   # Associations
@@ -17,7 +20,7 @@ class Charge < ActiveRecord::Base
   # Uncomment, copy and add you associations here...
   # belongs_to                :parent
   # has_many                  :children, :dependent=>:destroy
-  # has_and_belongs_to_many   :friends
+  # has_and_belongs_to_many   :charges
   # has_one                  :life
 
 

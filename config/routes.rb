@@ -1,12 +1,12 @@
 Recharge::Application.routes.draw do
 
-  resources :charges
-
   match "charges_integrated_view"=>"charges#integrated_view"
 
   match "people_integrated_view"=>"people#integrated_view"
 
-  resources :stations
+  resources :stations, :only => [:index, :show] do
+    resources :charges
+  end
   
   match "stations_integrated_view"=>"stations#integrated_view"
 
