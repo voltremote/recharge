@@ -1,3 +1,14 @@
+<% content_for :maps_javascript do %>
+
+  var myLatlng = new google.maps.LatLng(<%=@geo.lat%>, <%=@geo.lng%>);
+
+  var marker = new google.maps.Marker({
+    position: myLatlng,
+    map: map,
+    title:"Hello World!"
+  });
+<% end %>
+
 <span style="color:white"><%  "Station" %></span>
 
 <p>
@@ -22,7 +33,5 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_station_path(@station) %> |
-  <%= link_to "Destroy", @station, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", stations_path %>
 </p>
