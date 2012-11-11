@@ -16,23 +16,16 @@
   <span style="color:white"><%  "Stations" %></span>
 <% end %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Zipcode</th>
-    <th>Street</th>
-    <th>City</th>
-  </tr>
-  <% for station in @stations %>
-    <tr>
-      <td><%= station.name %></td>
-      <td><%= station.description %></td>
-      <td><%= station.zipcode %></td>
-      <td><%= station.street %></td>
-      <td><%= station.city %></td>
-      <td><%= link_to "Show", station %></td>
-    </tr>
-  <% end %>
-</table>
+
+
+<% for station in @stations %>
+<%= cycle('<div class = "row">'.html_safe, '', '') %>
+  <div class= "span4">
+    <h2><%= link_to station.name, station %></h2>      
+    <%= station.street %>, <%= station.city %>, <%= station.zipcode %><br/>
+    <%= station.description %>    
+  </div>
+<%= cycle('</div>'.html_safe, '', '') %>
+<% end %>
+
 
