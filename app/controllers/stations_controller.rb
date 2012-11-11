@@ -9,6 +9,7 @@ class StationsController < ApplicationController
     @station = Station.find(params[:id])
     @focus_lat = @station.lat 
     @focus_lng = @station.lng
+    @map_zoom = 15
   end
 
   def new

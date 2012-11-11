@@ -11,10 +11,8 @@
   <script type="text/javascript">
     function initialize() {
       var mapOptions = {
-        <% @focus_lat ||= 37.46 %>
-        <% @focus_lng ||= -122.25 %>
-        center: new google.maps.LatLng(<%= @focus_lat %>, <%= @focus_lng%>),
-        zoom: 16,
+        center: new google.maps.LatLng(<%= @focus_lat ||= 37.46 %>, <%= @focus_lng  ||= -122.25 %>),
+        zoom: <%= @map_zoom ||= 8 %>,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
