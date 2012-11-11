@@ -77,6 +77,8 @@ GEM
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
     friendly_id (4.0.9)
+    geokit (1.6.5)
+      multi_json
     gritter (1.0.2)
     haml (3.1.7)
     hike (1.2.1)
@@ -171,6 +173,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   friendly_id
+  geokit
   jquery-rails
   rails (= 3.2.6)
   rails_admin!
