@@ -16,9 +16,19 @@ Recharge::Application.routes.draw do
 
   devise_for :users
   
+<<<<<<< HEAD
   root :to => 'welcome#index'
 
   root:to=>'welcome#index'
+=======
+  
+  match "graph" => 'graph_tester#index'
+  match "about" => 'pages#about'
+  match "contact" => 'pages#contact'
+
+  
+  root :to=>'pages#welcome'
+>>>>>>> pages controller scaffolded
   
   
   
