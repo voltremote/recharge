@@ -1,38 +1,84 @@
 <% content_for :maps_javascript do %>
-
   var myLatlng = new google.maps.LatLng(<%= @station.lat %> , <%= @station.lng %>);
-
   var marker = new google.maps.Marker({
     position: myLatlng,
     map: map,
     title:"Hello World!"
   });
-
 <% end %>
 
-<span style="color:white"><%  "Station" %></span>
+<div class="row">
+  <div class="span4">
+    <h1>Station <%= @station.name %></h1>
+    <span style="color:white"><%  "Station" %></span>
+    <p>
+      <strong>Description:</strong>
+      <%= @station.description %>
+    </p>
+    <p>
+      <strong>Zipcode:</strong>
+      <%= @station.zipcode %>
+    </p>
+    <p>
+      <strong>Street:</strong>
+      <%= @station.street %>
+    </p>
+    <p>
+      <strong>City:</strong>
+      <%= @station.city %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @station.name %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @station.description %>
-</p>
-<p>
-  <strong>Zipcode:</strong>
-  <%= @station.zipcode %>
-</p>
-<p>
-  <strong>Street:</strong>
-  <%= @station.street %>
-</p>
-<p>
-  <strong>City:</strong>
-  <%= @station.city %>
-</p>
+    <p>
+      <%= link_to "View All", stations_path %>
+    </p>
+  </div>
+  <div class="span8">
+        <h2>Charging Level</h2>
+        <hr>
+            <div class="chart"></div>
+        <p class="text-success pull-right">This station is ready to charge your device!
+        </p>
 
-<p>
-  <%= link_to "View All", stations_path %>
-</p>
+    <a class="btn  btn-success" href="#">Charge Now!</a>
+  </div>
+</div>
+
+<script>
+  
+var client_url = function(date) {
+  return "/graph.json";
+}
+
+var width = 600;
+var height = 175;
+var $chart = $(".chart");
+
+var svg = d3.selectAll(".chart").append("svg").attr("width", width).attr("height", height);
+var ratio_svg = d3.selectAll(".ratio").append("svg").append("g").attr('id', 'ratio');
+
+function updateData(id){
+  $.get(client_url(id), function(result) {
+    var data = result;
+    data.sample = data.production.length - 1;
+    $chart.data("chart-values", data);
+    $chart.trigger("data-changed");
+  });
+}
+  
+$chart.data("chart-layout", {
+  width  : width,  // total width
+  height : height, // total height
+  left   : 37,     // space for left legend
+  bottom : 15,     // space for bottom legend
+  right  : 5       // right padding
+});
+
+var daily = vr.graphs.daily(svg, $chart.data("chart-layout"));
+$chart.on("data-changed", function(data) {
+  daily($chart.data("chart-values"));
+});
+
+updateData(1);
+  
+</script>
+
