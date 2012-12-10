@@ -1,3 +1,18 @@
+<% content_for :maps_javascript do %>  
+  <% for station in @stations %>
+
+    google.maps.event.addListener(new google.maps.Marker({
+      position: new google.maps.LatLng(<%= station.lat %> , <%= station.lng %>),
+      map: map,
+      url: '<%= station_url(station) %>',
+      title:"<%= station.name %>",
+      icon: sun_icon
+    }), 'click', function() { window.location.href = this.url; });
+
+  <% end %>
+<% end %>
+
+
 <h1>Contact us!</h1>
 
 <h2> Sol Design Lab</h2>

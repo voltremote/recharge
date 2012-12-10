@@ -5,9 +5,11 @@ class PagesController < ApplicationController
   end
   
   def about
+    @stations = Station.all
   end
   
   def contact
+    @stations = Station.all
   end
 
 end
