@@ -22,7 +22,7 @@
     <% for station in slice %>
       <div class= "span4">
         <h2 style = "line-height:0.8;"><%= link_to station.name, station %></h2>   
-        <%= station.street %>, <%= station.city %>, <%= station.zipcode %><br/>
+        <%= station.street %>,<br/> <%= station.city %>,<br/> <%= station.zipcode %><br/>
         <pre>
         <%= station.description %> 
         </pre>
