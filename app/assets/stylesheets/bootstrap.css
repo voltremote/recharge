@@ -2535,7 +2535,7 @@ button.btn.small, input[type="submit"].btn.small {
   float: left;
   display: block;
   padding: 4px 20px 12px;
-  margin-left: -20px;
+  margin-left: 0px;
   font-size: 20px;
   font-weight: 200;
   line-height: 1;
@@ -2652,7 +2652,7 @@ button.btn.small, input[type="submit"].btn.small {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  height:50px;
+  /*height:50px;*/
 }
 .navbar .nav {
   position: relative;
