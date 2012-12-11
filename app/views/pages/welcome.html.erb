@@ -39,7 +39,7 @@ box-shadow: 1px 1px 1px 0px #AAA;"><%= link_to 'Show cloud cover', '#', :id => "
           <% @stations.each do |station| %>
           <div style="clear:both; margin-bottom:15px;" >
           <%= link_to "Check Status", station, :style=>"float:right", :class => "btn btn-success"%>
-            <%= station.name %></div>
+            <%= link_to station.name, station %></div>
           <% end%>
         </h4>
         
